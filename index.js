@@ -1,4 +1,5 @@
-var gulp = require('gulp'),
+var fs = require('fs'),
+    gulp = require('gulp'),
     concat = require('gulp-concat'),
     gulpif = require('gulp-if'),
     trimContent = require('gulp-trim'),
@@ -33,8 +34,9 @@ module.exports = function(options) {
       depName = relPathParsed.name.replace(/\.min$/, '');
       libExt = !libExt ? relPathParsed.ext : libExt;
       if (!lib.from[depKey].skipVer) {
-        depVersion = require('./' + o.bowerComponentsDir +
-                             relPath.split('/')[0] + '/.bower.json')._release;
+        depVersion = JSON.parse(fs.readFileSync(
+            path.resolve(process.cwd(), o.bowerComponentsDir) +
+            '/' + relPath.split('/')[0] + '/.bower.json'))._release;
         depName += '.' + depVersion;
       }
       if (lib.from[depKey].prefix) {
