@@ -15,7 +15,9 @@ module.exports = function(options) {
     bowerComponentsDir: 'bower_components/',
     libsDir: 'lib/',
     libs: [],
-    jsMinifier: uglify()
+    jsMinifier: function() {
+      return uglify();
+    }
   }, options);
 
   return merge.apply(null, o.libs.map(function(lib) {
@@ -46,7 +48,7 @@ module.exports = function(options) {
 
       libsStream.queue((function(filePath, minify) {
         return gulp.src(filePath)
-            .pipe(gulpif(minify, o.jsMinifier))
+            .pipe(gulpif(minify, o.jsMinifier(filePath)))
             .pipe(trimContent());
       })(o.bowerComponentsDir + relPath,
           (!!lib.from[depKey].minify && (libExt === '.js'))));
