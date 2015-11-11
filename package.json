@@ -1,6 +1,6 @@
 {
   "name": "gulp-bower-builder",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Gulp plugin for configurable building of front-end libraries from Bower dependencies",
   "main": "index.js",
   "repository": {

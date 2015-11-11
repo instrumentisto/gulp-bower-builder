@@ -48,6 +48,18 @@ gulp.task('build-libs', function() {
           'button.min.js': {skipVer: true},
           'dialog.min.js': {}
         }
+      },
+      {from: {
+        'better-dom/dist/better-dom.min.js': {},
+        'better-i18n-plugin/dist/better-i18n-plugin.js': {
+          name: 'i18n-plugin', minify: true
+        },
+        'better-dateinput-polyfill/dist/better-dateinput-polyfill.js': {
+          name: 'dateinput-polyfill', minify: true, skipVer: true
+        },
+        'better-dateinput-polyfill/i18n/better-dateinput-polyfill.ru.js': {
+          name: 'ru', minify: true
+        }
       }
     ],
     jsMinifier: function(filePath) {  // default is uglify()
@@ -63,6 +75,7 @@ gulp.task('build-libs', function() {
 will produce next compressed files
 ```
 ./public/lib
+├── better-dom.2.1.4,i18n-plugin.1.0.3,dateinput-polyfill,ru.1.5.2.js
 ├── html5shiv-printshiv.3.7.3.js
 ├── jquery-ui-core,widget,mouse,position,draggable,resizable,button,dialog.1.11.4.js
 ├── jquery.1.11.3,jquery.dataset.1.2.0.js
