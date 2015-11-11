@@ -62,7 +62,7 @@ gulp.task('build-libs', function() {
 ```
 will produce next compressed files
 ```
-./public/scripts/js/lib
+./public/lib
 ├── html5shiv-printshiv.3.7.3.js
 ├── jquery-ui-core,widget,mouse,position,draggable,resizable,button,dialog.1.11.4.js
 ├── jquery.1.11.3,jquery.dataset.1.2.0.js
