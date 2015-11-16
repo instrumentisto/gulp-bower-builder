@@ -55,8 +55,8 @@ module.exports = function(options) {
           (!!lib.from[depKey].minify && (libExt === '.js'))));
 
       if (lib.copyFiles) {
-        lib.copyFiles = (typeof lib.copyFiles !== 'array') ?
-                        [lib.copyFiles] : lib.copyFiles;
+        lib.copyFiles = Array.isArray(lib.copyFiles) ?
+                        lib.copyFiles : [lib.copyFiles];
         lib.copyFiles.forEach(function(coll) {
           fullStream.queue(
               gulp.src(o.bowerComponentsDir + depDir + coll.src,
