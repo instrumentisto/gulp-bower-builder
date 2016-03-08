@@ -34,7 +34,7 @@ module.exports = function(options) {
           relPathParsed = path.parse(relPath);
 
       depName = lib.from[depKey].name ? lib.from[depKey].name :
-                relPathParsed.name.replace(/\.min$/, '');
+                relPathParsed.name.replace(/[\.-]min$/, '');
       libExt = !libExt ? relPathParsed.ext : libExt;
       if (!lib.from[depKey].skipVer) {
         depVersion = JSON.parse(fs.readFileSync(
