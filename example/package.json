@@ -1,0 +1,11 @@
+{
+  "name": "gulp-bower-builder-example",
+  "version": "0.1.0",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-bower-builder": "file:../",
+    "gulp-closure-compiler": "^0.2.20",
+    "gulp-minify-css": "^1.1.6"
+  },
+  "private": true
+}

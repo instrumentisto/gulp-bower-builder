@@ -1,20 +1,3 @@
-# gulp-bower-builder
-[![GitHub release](https://img.shields.io/github/release/instrumentisto/gulp-bower-builder.svg)](https://github.com/instrumentisto/gulp-bower-builder)
-[![npm version](https://img.shields.io/npm/v/gulp-bower-builder.svg)](https://www.npmjs.com/package/gulp-bower-builder)
-[![npm license](https://img.shields.io/npm/l/gulp-bower-builder.svg)](https://github.com/instrumentisto/gulp-bower-builder/blob/master/LICENSE.md)
-[![dependencies](https://img.shields.io/david/instrumentisto/gulp-bower-builder.svg)](https://david-dm.org/instrumentisto/gulp-bower-builder)
-[![devDependencies](https://img.shields.io/david/dev/instrumentisto/gulp-bower-builder.svg)](https://david-dm.org/instrumentisto/gulp-bower-builder#info=devDependencies)
-
-[Gulp](http://gulpjs.com/) plugin for configurable building of front-end
-libraries from [Bower](http://bower.io/) dependencies.
-
-
-
-## Usage example
-
-You can play with it in `example/` directory.
-
-```javascript
 var gulp = require('gulp'),
     closureCompiler = require('gulp-closure-compiler'),
     buildBowerLibraries = require('gulp-bower-builder'),
@@ -93,28 +76,3 @@ gulp.task('build-libs', function() {
     }
   });
 });
-```
-produces next compressed files
-```
-$ tree out
-out
-├── css
-│   └── jquery.chosen
-│       ├── chosen-sprite.png
-│       ├── chosen-sprite@2x.png
-│       └── jquery.chosen.1.5.1.css
-└── js
-    ├── better-dom.2.1.4,i18n-plugin.1.0.3,dateinput-polyfill,ru.1.5.2.js
-    ├── html5shiv-printshiv.3.7.3.js
-    ├── jquery-ui-core,widget,mouse,position,draggable,resizable,button,dialog.1.11.4.js
-    ├── jquery.1.11.3,jquery.dataset.1.2.0.js
-    ├── jquery.chosen.1.5.1.js
-    ├── js.cookie.2.0.4.js
-    ├── polyfiller.1.15.10.js
-    └── shims
-        ├── FlashCanvas
-        │   ├── canvas2png.js
-        │   ├── flashcanvas.js
-        │   └── flashcanvas.swf
-        ... and other copied files
-```

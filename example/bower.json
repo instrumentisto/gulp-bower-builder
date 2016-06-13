@@ -1,0 +1,25 @@
+{
+  "name": "gulp-bower-builder-example",
+  "version": "0.1.0",
+  "dependencies": {
+    "better-dateinput-polyfill": "1.5.2",
+    "better-dom": "2.1.4",
+    "better-i18n-plugin": "1.0.3",
+    "chosen": "1.5.1",
+    "html5shiv": "3.7.3",
+    "jquery": "1.11.3",
+    "jquery-dataset": "1.2.0",
+    "jquery-ui": "1.11.4",
+    "js-cookie": "2.0.4",
+    "webshim": "1.15.10"
+  },
+  "devDependencies": {
+    "closure-compiler": "http://dl.google.com/closure-compiler/compiler-latest.zip"
+  },
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "out"
+  ],
+  "private": true
+}
