@@ -1,4 +1,5 @@
-var fs = require('fs'),
+var extend = require('extend'),
+    fs = require('fs'),
     gulp = require('gulp'),
     concat = require('gulp-concat'),
     gulpif = require('gulp-if'),
@@ -7,7 +8,7 @@ var fs = require('fs'),
     minifyCss = require('gulp-minify-css'),
     merge = require('merge-stream'),
     path = require('path'),
-    extend = require('extend');
+    serie = require('stream-series');
 
 
 module.exports = main;
@@ -38,7 +39,7 @@ function main(options) {
         return uglify();
       },
       css: function () {
-        return minifyCss();  
+        return minifyCss();
       }
     }
   }, options);
@@ -92,10 +93,12 @@ function main(options) {
               .pipe(minifyIf(!!fromItem.minify, relPath))
               .pipe(trimContent()));
     }
-    allTasks.push(
-        merge.apply(null, libsTasks)
-            .pipe(concat(depNames.join(',') + libExt))
-            .pipe(gulp.dest(destDir)));
+    if (libsTasks.length > 0) {
+      allTasks.push(
+          serie.apply(null, libsTasks)
+              .pipe(concat(depNames.join(',') + libExt))
+              .pipe(gulp.dest(destDir)));
+    }
 
     if (lib.copyFiles) {
       lib.copyFiles = Array.isArray(lib.copyFiles) ?
@@ -103,7 +106,7 @@ function main(options) {
       lib.copyFiles.forEach(function(coll) {
         allTasks.push(
             gulp.src(o.bowerDir + depDir + coll.src,
-                     {base: o.bowerDir + depDir + coll.base})
+                     {base: coll.base ? (o.bowerDir + depDir + coll.base) : ''})
                 .pipe(minifyIf(!!coll.minify, o.bowerDir + depDir + coll.src))
                 .pipe(gulpif(!!coll.minify, trimContent()))
                 .pipe(gulp.dest(destDir + (coll.destDir || ''))));
