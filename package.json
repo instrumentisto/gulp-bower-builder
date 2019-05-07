@@ -1,6 +1,6 @@
 {
   "name": "gulp-bower-builder",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Gulp plugin for configurable building of front-end libraries from Bower dependencies",
   "main": "index.js",
   "repository": {
@@ -15,7 +15,7 @@
   "homepage": "https://github.com/instrumentisto/gulp-bower-builder",
   "dependencies": {
     "extend": "^3.0.0",
-    "gulp": "^3.9.0",
+    "gulp": "^4.0.0",
     "gulp-concat": "^2.6.0",
     "gulp-if": "^2.0.0",
     "gulp-minify-css": "^1.1.6",
